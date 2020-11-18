@@ -7,7 +7,9 @@
     "license": "MIT",
     "authors": [
       {
-        "name": "wala"
+        "name": "wala",
+        "email": "libanez@outlook.com",
+        "role": "Developer"        
       }
     ],
     "support": {
