@@ -11,8 +11,8 @@
       }
     ],
     "support": {
-      "issues": "https://github.com/codemonauts/yii2-cloudwatch-logs/issues",
-      "source": "https://github.com/codemonauts/yii2-cloudwatch-logs"
+      "issues": "https://github.com/leoibanezp/cloudwatchlogs/issues",
+      "source": "https://github.com/leoibanezp/cloudwatchlogs"
     },
     "require": {
       "php": ">=5.6.0",
