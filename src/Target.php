@@ -1,5 +1,5 @@
 <?php
-namespace wala\cloudwatchlogs;
+namespace leoibanezp\cloudwatchlogs;
 
 use yii\log\Target as BaseTarget;
 use yii\base\InvalidConfigException;
