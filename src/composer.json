@@ -1,5 +1,5 @@
 {
-    "name": "wala/yii2-cloudwatch-logs",
+    "name": "leoibanezp/cloudwatchlogs",
     "type": "library",
     "description": "A Yii 2 log target for AWS Cloudwatch Logs",
     "version": "1.0.5",
