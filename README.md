@@ -27,6 +27,7 @@ return [
                     'levels' => ['error', 'warning', 'info', 'trace', 'profile'],
                     'logVars' => ['_GET', '_POST', '_FILES', '_COOKIE', '_SESSION', '_SERVER'],
                     'key' => 'your-key', // omit for instance role
+                    'launch' => 'go', // skip to not start
                     'secret' => 'your-secret', // omit for instance role
                 ],
                 // ...
