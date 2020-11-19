@@ -5,6 +5,7 @@ use yii\log\Target as BaseTarget;
 use yii\base\InvalidConfigException;
 use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use yii\log\Logger;
+use \yii\helpers\VarDumper;
 
 class Target extends BaseTarget
 {
@@ -47,6 +48,9 @@ class Target extends BaseTarget
      * @inheritdoc
      */
     public function init() {
+        if (empty($this->launch)) {
+            return;
+        }
         if (empty($this->logGroup)) {
             throw new InvalidConfigException("A log group must be set.");
         }
@@ -54,18 +58,11 @@ class Target extends BaseTarget
         if (empty($this->region)) {
             throw new InvalidConfigException("The AWS region must be set.");
         }
-
+        if (empty($this->key)) {
+            throw new InvalidConfigException("Cannot identify instance ID and no log stream name is set.");
+        }
         if (empty($this->logStream)) {
-            if (empty($this->key)) {
-                $instanceId = @file_get_contents("http://instance-data/latest/meta-data/instance-id");
-                if ($instanceId !== false) {
-                    $this->logStream = $instanceId;
-                } else {
-                    throw new InvalidConfigException("Cannot identify instance ID and no log stream name is set.");
-                }
-            } else {
-                throw new InvalidConfigException("No log stream name is set.");
-            }
+            $this->logStream = date('Y-m-d');
         }
 
         $params = [
