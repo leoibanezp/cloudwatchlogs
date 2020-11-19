@@ -35,6 +35,11 @@ class Target extends BaseTarget
     public $secret;
 
     /**
+     * @var boolean Specifies whether to start or not.
+     */
+    public $launch;
+
+    /**
      * @var CloudWatchLogsClient
      */
     private $client;
