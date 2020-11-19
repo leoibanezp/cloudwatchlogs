@@ -37,7 +37,7 @@ class Target extends BaseTarget
     /**
      * @var boolean Specifies whether to start or not.
      */
-    public $launch;
+    public $launch;    
 
     /**
      * @var CloudWatchLogsClient
@@ -90,6 +90,9 @@ class Target extends BaseTarget
      */
     public function export()
     {
+        if (empty($this->launch)) {
+            return;
+        }        
         $this->ensureLogGroupExists();
 
         $this->refreshSequenceToken();
@@ -146,6 +149,9 @@ class Target extends BaseTarget
      */
     private function refreshSequenceToken()
     {
+        if (empty($this->launch)) {
+            return;
+        }          
         $existingStreams = $this->client->describeLogStreams([
             'logGroupName' => $this->logGroup,
             'logStreamNamePrefix' => $this->logStream,
@@ -177,6 +183,9 @@ class Target extends BaseTarget
      */
     private function ensureLogGroupExists()
     {
+        if (empty($this->launch)) {
+            return;
+        }        
         $existingGroups = $this->client->describeLogGroups([
             'logGroupNamePrefix' => $this->logGroup,
         ])->get('logGroups');
