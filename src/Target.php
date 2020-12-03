@@ -35,7 +35,7 @@ class Target extends BaseTarget
     public $secret;
 
     /**
-     * @var boolean Specifies whether to start or not.
+     * @var boolean Specifies whether to start or not launch.
      */
     public $launch;    
 
